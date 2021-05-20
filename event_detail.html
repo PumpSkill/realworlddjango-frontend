@@ -166,6 +166,7 @@
                         <div class="card-body">
                             <form id="formReview">
                                 <div class="d-none">{% csrf_token %}</div>
+                                <input type="hidden" name="event_id" value="{{ event.id }}">
                                 <div class="row row-cols-lg-auto g-3 mb-3 align-items-start">
                                     <div class="col-12">
                                         <label for="rate" class="form-label">Оценка</label>
@@ -315,21 +316,33 @@
             let btnSendReview = document.getElementById('btnSendReview')
             if (formReview && btnSendReview) {
                 btnSendReview.onclick = () => {
+                    // Создаем JavaScript объект formData - в этом объекте хранятся данные для HTTP запроса
+                    // Это данные из формы добавления отзыва - поля Оценка и Текст отзыва
                     let formData = new FormData(formReview)
+                    // Создаем JavaScript объект для отправки HTTP запроса
                     let xhr = new XMLHttpRequest()
-                    xhr.open("POST", "{{ event.get_absolute_url }}")
+                    // Отправляем запрос с методом POST на нужный URL адрес
+                    xhr.open("POST", "{% url 'api_events:create_review' %}")
+                    // Добавляем в запрос данные с формы отзыва
                     xhr.send(formData)
+                    // Ждем ответа от сервера. Метод onloadend срабатывает когда придет ответ
                     xhr.onloadend = function () {
+                        // Если статус ответа = 200, значит все OK. Отправленный HTTP успешно вернул ответ
                         if (xhr.status === 200) {
                             try {
+                                // Строка формата JSON содержится в реквизите xhr.response - парсим ее
                                 let response = JSON.parse(xhr.response)
+                                // Запускаем функцию по созданию на странице нового элемента с отзывом
                                 createNewReview(response)
                             } catch (err) {
+                                // Если не удалось распарсить строку ответа, то выводим ошибку
                                 console.error(err)
                                 addNewReview(err)
                             }
                         } else {
-                            addNewReview("Ошибка " + this.status)
+                            // Если статус ответа не 200, значит при обработке HTTP возникли какие-то ошибки
+                            // Ситуации могут быть разные. Выводим ошибку со статусом ответа
+                            addNewReview("Ошибка " + xhr.status)
                         }
                     }
                 }
