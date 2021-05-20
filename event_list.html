@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Real World Django - События</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Project style -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="vertical-layout">
+
+    <!-- Start LEFT_MENU -->
+    <div class="leftbar">
+        <div class="logobar">
+            <a href="#" class="logo logo-large">
+                <img src="assets/images/svg-icon/logo.svg" alt="logo" style="height: 40px">
+            </a>
+        </div>
+        <ul class="vertical-menu" id="vertical-menu">
+            <li class="vertical-menu-item">
+                <span>Главное</span>
+                <ul class="vertical-submenu">
+                    <li><a href="event_list.html">События</a></li>
+                </ul>
+            </li>
+            <li class="vertical-menu-item">
+                <span>Аккаунт</span>
+                <ul class="vertical-submenu">
+                    <li><a href="#">Мой аккаунт</a></li>
+                    <li><a href="#">Изменить пароль</a></li>
+                    <li><a href="#">Сбросить пароль</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- menu for mobile -->
+    <div class="topbar-mobile">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="mobile-logobar" style="max-width: 40px">
+                    <a href="#" class="mobile-logo">
+                        <img src="assets/images/svg-icon/logo.svg" class="img-fluid" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-togglebar">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <div class="menubar">
+                                <a class="menu-hamburger" href="#" id="menu-hamburger">
+                                    <img src="assets/images/svg-icon/collapse.svg"
+                                         class="img-fluid menu-hamburger-collapse"
+                                         alt="collapse">
+                                    <img src="assets/images/svg-icon/close.svg"
+                                         class="img-fluid menu-hamburger-close"
+                                         alt="close">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-md-none" style="height: 90px"></div>
+    <!-- End LEFT_MENU -->
+
+    <!-- Start MAIN_CONTAINER -->
+    <div class="rightbar">
+
+        <!-- Start TOP_BAR -->
+        <div class="container-fluid bg-white py-3">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto text-center ms-4">
+                    <h4>События</h4>
+                </div>
+                <div class="col-auto text-center me-4">
+                    <a href="#" class="btn btn-outline-primary">+ Добавить событие</a>
+                </div>
+            </div>
+        </div>
+        <!-- End TOP_BAR -->
+
+        <!-- Start CONTAINER_BAR -->
+        <div class="container-fluid mt-3">
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form>
+                                <div class="row row-cols-lg-auto g-3 align-items-start">
+                                    <div class="col-12">
+                                        <label for="category" class="form-label">Категория:</label>
+                                        <select class="form-select" id="category">
+                                            <option selected="">....................</option>
+                                            <option value="1">Спортивный турнир</option>
+                                            <option value="2">Семейное мероприятие</option>
+                                            <option value="3">Субботник</option>
+                                            <option value="4">Волонтерство</option>
+                                            <option value="5">Night Party</option>
+                                            <option value="6">Дилоги со звездой</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="features" class="form-label">Свойства:</label>
+                                        <select class="form-select" multiple="" id="features">
+                                            <option value="1">На открытом воздухе</option>
+                                            <option value="2">Приглашенная знаменитость</option>
+                                            <option value="3">Живая музыка</option>
+                                            <option value="4">Песни у костра</option>
+                                            <option value="5">Подарки участникам</option>
+                                            <option value="6"> Вечерние танцы</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 d-md-flex">
+                                        <div class="mx-1">
+                                            <label for="id_date_start" class="form-label">Дата начала</label>
+                                            <input type="date" class="form-control" id="id_date_start">
+                                        </div>
+                                        <div class="mx-1">
+                                            <label for="id_date_end" class="form-label">Дата окончания</label>
+                                            <input type="date" class="form-control" id="id_date_end">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12 d-md-flex">
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="is_private">
+                                            <label class="form-check-label" for="is_private">
+                                                Private
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="is_available">
+                                            <label class="form-check-label" for="is_available">
+                                                Есть места
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <button type="submit" class="btn btn-primary">Фильтровать</button>
+                                        <button type="submit" class="btn btn-outline-danger">Сбросить</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Вечерний субботник во вторник</h5>
+                            <span data-test="is_private" class="badge bg-dark">Private</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>12 из 100</h3>
+                            <p>участников</p>
+                            <ul class="py-2">
+                                <li>Музыка</li>
+                                <li>На открытом воздухе</li>
+                                <li>Приглашенные звезды</li>
+                            </ul>
+                            <p class="text-black">
+                                дата: <strong data-test="date_start">01.01.2001 в 23:59</strong>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="event_detail.html" class="btn btn-success">Смотреть</a>
+                            <a href="event_update.html" class="btn btn-outline-primary" title="Редактировать">
+                                <i class="bi bi-pencil-square"></i>Изменить
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">VR Рисование в Виртуальной реальности</h5>
+                            <p class="mb-0"><span class="badge bg-dark">Private</span></p>
+                        </div>
+                        <div class="card-body">
+                            <h3>12 из 100</h3>
+                            <p>участников</p>
+                            <ul class="py-2">
+                                <li>Музыка</li>
+                                <li>На открытом воздухе</li>
+                                <li>Приглашенные звезды</li>
+                            </ul>
+                            <p class="text-black">дата: <strong>27.12.2021 в 12:00</strong></p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="event_detail.html" class="btn btn-success">Смотреть</a>
+                            <a href="event_update.html" class="btn btn-outline-primary" title="Редактировать">
+                                <i class="bi bi-pencil-square"></i>Изменить
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Шоу «Big Stand Up»</h5>
+                        </div>
+                        <div class="card-body">
+                            <h3>12 из 100</h3>
+                            <p>участников</p>
+                            <ul class="py-2">
+                                <li>Музыка</li>
+                                <li>На открытом воздухе</li>
+                                <li>Приглашенные звезды</li>
+                            </ul>
+                            <p class="text-black">дата: <strong>27.12.2021 в 12:00</strong></p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="event_detail.html" class="btn btn-success">Смотреть</a>
+                            <a href="event_update.html" class="btn btn-outline-primary" title="Редактировать">
+                                <i class="bi bi-pencil-square"></i>Изменить
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End CONTAINER_BAR -->
+
+        <!-- Start FOOTER -->
+        <div style="height: 70px"></div>
+        <div class="footerbar">
+            <footer class="footer">
+                <p class="mb-0">© Pumpskill. Real World Django</p>
+            </footer>
+        </div>
+        <!-- End FOOTER -->
+
+    </div>
+    <!-- End MAIN_CONTAINER -->
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

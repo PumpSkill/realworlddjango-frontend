@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Real World Django - редактирование события Субботник во вторник</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Project style -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="vertical-layout">
+
+    <!-- Start LEFT_MENU -->
+    <div class="leftbar">
+        <div class="logobar">
+            <a href="#" class="logo logo-large">
+                <img src="assets/images/svg-icon/logo.svg" alt="logo" style="height: 40px">
+            </a>
+        </div>
+        <ul class="vertical-menu" id="vertical-menu">
+            <li class="vertical-menu-item">
+                <span>Главное</span>
+                <ul class="vertical-submenu">
+                    <li><a href="event_list.html">События</a></li>
+                </ul>
+            </li>
+            <li class="vertical-menu-item">
+                <span>Аккаунт</span>
+                <ul class="vertical-submenu">
+                    <li><a href="#">Мой аккаунт</a></li>
+                    <li><a href="#">Изменить пароль</a></li>
+                    <li><a href="#">Сбросить пароль</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- menu for mobile -->
+    <div class="topbar-mobile">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="mobile-logobar" style="max-width: 40px">
+                    <a href="#" class="mobile-logo">
+                        <img src="assets/images/svg-icon/logo.svg" class="img-fluid" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-togglebar">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <div class="menubar">
+                                <a class="menu-hamburger" href="#" id="menu-hamburger">
+                                    <img src="assets/images/svg-icon/collapse.svg"
+                                         class="img-fluid menu-hamburger-collapse"
+                                         alt="collapse">
+                                    <img src="assets/images/svg-icon/close.svg"
+                                         class="img-fluid menu-hamburger-close"
+                                         alt="close">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-md-none" style="height: 90px"></div>
+    <!-- End LEFT_MENU -->
+
+    <!-- Start MAIN_CONTAINER -->
+    <div class="rightbar">
+
+        <!-- Start TOP_BAR -->
+        <div class="container-fluid bg-white py-3">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto text-center ms-4">
+                    <h4>События</h4>
+                </div>
+                <div class="col-auto text-center me-4">
+                    <a href="#" class="btn btn-outline-primary">+ Добавить событие</a>
+                </div>
+            </div>
+        </div>
+        <!-- End TOP_BAR -->
+
+        <!-- Start CONTAINER_BAR -->
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-lg-5 col-xl-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Событие</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link mb-2 active" id="v-pills-edit-tab" data-bs-toggle="pill"
+                                   href="#v-pills-edit" role="tab" aria-controls="v-pills-edit"
+                                   aria-selected="true">
+                                    <i class="bi bi-pencil-square"></i>Редактировать
+                                </a>
+                                <a class="nav-link mb-2" id="v-pills-participants-tab" data-bs-toggle="pill"
+                                   href="#v-pills-participants" role="tab" aria-controls="v-pills-participants"
+                                   aria-selected="false">
+                                    <i class="bi bi-people-fill"></i>Участники
+                                </a>
+                                <a class="nav-link mb-2" id="v-pills-review-tab" data-bs-toggle="pill"
+                                   href="#v-pills-review" role="tab" aria-controls="v-pills-review"
+                                   aria-selected="false">
+                                    <i class="bi bi-chat-left-dots"></i>Отзывы
+                                </a>
+                                <a class="nav-link" id="v-pills-danger-zone-tab" data-bs-toggle="pill"
+                                   href="#v-pills-danger-zone" role="tab" aria-controls="v-pills-danger-zone"
+                                   aria-selected="false">
+                                    <i class="bi bi-exclamation-triangle-fill"></i>Danger zone
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-xl-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade active show" id="v-pills-edit" role="tabpanel"
+                             aria-labelledby="v-pills-edit-tab">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Вечерний субботник во вторник</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="assets/images/svg-icon/event.svg" class="img-fluid" alt="profile"
+                                         style="width: 250px">
+                                    <div class="mb-3 text-start">
+                                        <label for="formFile" class="form-label">Загрузить изображение</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Основная информация</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="id_title" class="form-label">Название</label>
+                                            <input type="text" class="form-control" id="id_title">
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="id_private">
+                                            <label class="form-check-label" for="id_private">Частное</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">
+                                            Сохранить
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-participants" role="tabpanel"
+                             aria-labelledby="v-pills-participants-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Участники</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Имя</th>
+                                                <th>Email</th>
+                                                <th>Оценка</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Иван Петров</td>
+                                                <td>ivan.petrov@mail.ru</td>
+                                                <td>5</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-review" role="tabpanel"
+                             aria-labelledby="v-pills-review-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Отзывы</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Start Review item -->
+                                    <div class="d-flex mb-4">
+                                        <span class="mr-3 action-icon badge badge-success-inverse">5</span>
+                                        <div>
+                                            <h5>Денис</h5>
+                                            <p class="my-3">Все понравилось. Круто повеселились!</p>
+                                            <p>5 Jan 2019, 02:13 PM</p>
+                                        </div>
+                                    </div>
+                                    <!-- End Review item -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-danger-zone" role="tabpanel"
+                             aria-labelledby="v-pills-danger-zone-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Danger zone</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-6 col-xl-4">
+                                            <div class="text-center my-5">
+                                                <img src="assets/images/svg-icon/cancel.svg" class="img-fluid mb-5"
+                                                     alt="logout">
+                                                <h2 class="text-success">Удалить событие?</h2>
+                                                <p class="my-4">
+                                                    Вы находитесь в опасной зоне. Вы уверены что хотите
+                                                    удалить событие безвозвратно?
+                                                </p>
+                                                <div class="button-list">
+                                                    <button type="button" class="btn btn-danger">
+                                                        Да, удалить
+                                                    </button>
+                                                    <button type="button" class="btn btn-success">
+                                                        Нет, не удалять
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End CONTAINER_BAR -->
+
+        <!-- Start FOOTER -->
+        <div style="height: 70px"></div>
+        <div class="footerbar">
+            <footer class="footer">
+                <p class="mb-0">© Pumpskill. Real World Django</p>
+            </footer>
+        </div>
+        <!-- End FOOTER -->
+
+    </div>
+    <!-- End MAIN_CONTAINER -->
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

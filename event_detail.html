@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Real World Django - событие Субботник во вторник</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Project style -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="vertical-layout">
+
+    <!-- Start LEFT_MENU -->
+    <div class="leftbar">
+        <div class="logobar">
+            <a href="#" class="logo logo-large">
+                <img src="assets/images/svg-icon/logo.svg" alt="logo" style="height: 40px">
+            </a>
+        </div>
+        <ul class="vertical-menu" id="vertical-menu">
+            <li class="vertical-menu-item">
+                <span>Главное</span>
+                <ul class="vertical-submenu">
+                    <li><a href="event_list.html">События</a></li>
+                </ul>
+            </li>
+            <li class="vertical-menu-item">
+                <span>Аккаунт</span>
+                <ul class="vertical-submenu">
+                    <li><a href="#">Мой аккаунт</a></li>
+                    <li><a href="#">Изменить пароль</a></li>
+                    <li><a href="#">Сбросить пароль</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- menu for mobile -->
+    <div class="topbar-mobile">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="mobile-logobar" style="max-width: 40px">
+                    <a href="#" class="mobile-logo">
+                        <img src="assets/images/svg-icon/logo.svg" class="img-fluid" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-togglebar">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <div class="menubar">
+                                <a class="menu-hamburger" href="#" id="menu-hamburger">
+                                    <img src="assets/images/svg-icon/collapse.svg"
+                                         class="img-fluid menu-hamburger-collapse"
+                                         alt="collapse">
+                                    <img src="assets/images/svg-icon/close.svg"
+                                         class="img-fluid menu-hamburger-close"
+                                         alt="close">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-md-none" style="height: 90px"></div>
+    <!-- End LEFT_MENU -->
+
+    <!-- Start MAIN_CONTAINER -->
+    <div class="rightbar">
+
+        <!-- Start TOP_BAR -->
+        <div class="container-fluid bg-white py-3">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto text-center ms-4">
+                    <h4>Real World Django</h4>
+                </div>
+                <div class="col-auto text-center me-4">
+                    <a href="#" class="btn btn-outline-primary">Войти</a>
+                    <a href="#" class="btn btn-primary">Регистрация</a>
+                </div>
+            </div>
+        </div>
+        <!-- End TOP_BAR -->
+
+        <!-- Start CONTAINER_BAR -->
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="card m-b-30">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6 col-xl-5 mb-4">
+                                    <img src="assets/images/svg-icon/event.svg" class="img-fluid" alt="event">
+                                </div>
+                                <div class="col-lg-6 col-xl-7">
+                                    <p data-test="is_private" class="badge bg-dark">Private</p>
+                                    <h2 data-test="event_title">Вечерний субботник во вторник</h2>
+                                    <p data-test="event_rate" class="badge bg-warning">4.5 / 5</p>
+                                    <h5 data-test="event_category" class="mt-3">Спортивный турнир</h5>
+                                    <p data-test="event_description" class="my-4">Мы будем круто веселиться, а еще будут
+                                        приглашенные звезды!</p>
+                                    <ul>
+                                        <li data-test="feature">Приглашенная знаменитось</li>
+                                        <li data-test="feature">Живая музыка</li>
+                                        <li data-test="feature">Песни у костра</li>
+                                    </ul>
+                                    <div class="button-list mt-5 mb-5">
+                                        <button data-test="enroll"
+                                                type="button"
+                                                class="btn btn-success"
+                                                disabled>
+                                            Записаться
+                                        </button>
+                                        <a href="#reviews" class="btn btn-primary">
+                                            <i class="bi bi-pencil"></i>Оставить отзыв
+                                        </a>
+                                        <button type="button" class="btn btn-outline-danger"
+                                                title="Добавить в избранное">
+                                            <i class="bi bi-heart-fill"></i>
+                                        </button>
+                                    </div>
+                                    <div class="card text-center col-xl-6 m-b-30 bg-info-rgba border btn-shadow">
+                                        <div class="card-header">
+                                            <h5 class="card-title">Количество участников</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <i class="bi bi-emoji-smile text-success" style="font-size: 3rem"></i>
+                                            <h4 data-test="enroll_count">
+                                                79 из 100
+                                            </h4>
+                                            <p data-test="places_left">
+                                                осталось мест: 21
+                                            </p>
+                                            <div class="progress" style="height: 5px;">
+                                                <div data-test="progressbar"
+                                                     class="progress-bar bg-success"
+                                                     role="progressbar"
+                                                     style="width: 60%"
+                                                     aria-valuenow="60"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4" id="reviews">
+                <h2 class="card-title">Отзывы</h2>
+                <div class="col-lg-12" id="reviewCol">
+                    <div class="card my-3 shadow">
+                        <div class="card-header">
+                            <h4 class="card-title">Написать отзыв</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="formReview">
+                                <div class="d-none">{% csrf_token %}</div>
+                                <div class="row row-cols-lg-auto g-3 mb-3 align-items-start">
+                                    <div class="col-12">
+                                        <label for="rate" class="form-label">Оценка</label>
+                                        <select class="form-select" id="rate" name="rate">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="text" class="form-label">Текст отзыва</label>
+                                    <textarea class="form-control"
+                                              name="text" id="text"
+                                              rows="3"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-primary mt-3" id="btnSendReview">
+                                    Отправить отзыв
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card my-3">
+                        <div class="card-header pb-0">
+                            <h5 class="card-title">
+                                Виталий Петров
+                                <span class="badge bg-warning">5</span>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <img src="assets/images/users/men.svg" class="img-fluid me-3" alt="user">
+                            <p data-test="review_text" class="mb-0 d-inline">
+                                Ох, давно я так не веселился!!! Все было круто. Надо повторить)
+                            </p>
+                            <p data-test="review_date" class="mt-3">01.01.1900</p>
+                        </div>
+                    </div>
+                    <div class="card my-3">
+                        <div class="card-header pb-0">
+                            <h5 class="card-title">
+                                Виталий Петров
+                                <span class="badge bg-warning">5</span>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <img src="assets/images/users/men.svg" class="img-fluid me-3" alt="user">
+                            <p data-test="review_text" class="mb-0 d-inline">
+                                Ох, давно я так не веселился!!! Все было круто. Надо повторить)
+                            </p>
+                            <p data-test="review_date" class="mt-3">01.01.1900</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End CONTAINER_BAR -->
+
+        <!-- Start FOOTER -->
+        <div style="height: 70px"></div>
+        <div class="footerbar">
+            <footer class="footer">
+                <p class="mb-0">© Pumpskill. Real World Django</p>
+            </footer>
+        </div>
+        <!-- End FOOTER -->
+
+    </div>
+    <!-- End MAIN_CONTAINER -->
+
+    <script>
+        function addNewReview(innerText = '', innerHTML = '') {
+            let reviewHTML = innerHTML
+            if (!reviewHTML) {
+                reviewHTML = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                ` + innerText.toString().replaceAll('\n', '<br>') + `
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`
+            }
+            let container = document.getElementById('reviewCol'),
+                firstChild = container.childNodes[1]
+            if (container && firstChild) {
+                let newReview = document.createElement('div')
+                newReview.innerHTML = reviewHTML
+                firstChild.parentNode.insertBefore(newReview, firstChild.nextSibling)
+            }
+        }
+
+        function createNewReview(data) {
+            let rate = '',
+                text = '',
+                created = '',
+                user_name = '',
+                ok = false,
+                msg = ''
+            try {
+                ok = data.ok
+                msg = data.msg
+                rate = data.rate
+                text = data.text
+                created = data.created
+                user_name = data.user_name
+            } catch (err) {
+                addNewReview(err)
+            }
+            if (ok === true) {
+                if (!rate || !text || !created) {
+                    let errMsg = 'rate = ' + rate + '\ntext = ' + text + '\ncreated = ' + created
+                    addNewReview('Некоторые переменные в JsonResponse не определены:\n' + errMsg)
+                } else {
+                    let newReviewInnerHTML = `
+                        <div class="card my-3">
+                            <div class="card-header pb-0">
+                                <h5 class="card-title">
+                                    ` + user_name + `
+                                    <span class="badge bg-warning">` + rate + `</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <img src="{% static 'images/users/men.svg' %}" class="img-fluid me-3" alt="user">
+                                <p data-test="review_text" class="mb-0 d-inline">
+                                    ` + text + `
+                                </p>
+                                <p data-test="review_date" class="mt-3">` + created + `</p>
+                            </div>
+                        </div>`
+                    addNewReview('', newReviewInnerHTML)
+                }
+            } else {
+                let extraMsg = ''
+                if (ok === false) {
+                    extraMsg = msg
+                } else {
+                    extraMsg = 'Новый отзыв не отображен, потому что в ответе от сервера не найден ключ "ok"'
+                    if (msg) {
+                        extraMsg = extraMsg + '\nСообщение от сервера: ' + msg
+                    }
+                }
+                addNewReview(extraMsg)
+            }
+        }
+
+        function ready() {
+            let formReview = document.getElementById('formReview')
+            let btnSendReview = document.getElementById('btnSendReview')
+            if (formReview && btnSendReview) {
+                btnSendReview.onclick = () => {
+                    let formData = new FormData(formReview)
+                    let xhr = new XMLHttpRequest()
+                    xhr.open("POST", "{{ event.get_absolute_url }}")
+                    xhr.send(formData)
+                    xhr.onloadend = function () {
+                        if (xhr.status === 200) {
+                            try {
+                                let response = JSON.parse(xhr.response)
+                                createNewReview(response)
+                            } catch (err) {
+                                console.error(err)
+                                addNewReview(err)
+                            }
+                        } else {
+                            addNewReview("Ошибка " + this.status)
+                        }
+                    }
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", ready)
+    </script>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
