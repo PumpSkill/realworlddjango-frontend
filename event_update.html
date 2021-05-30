@@ -129,7 +129,9 @@
                              aria-labelledby="v-pills-edit-tab">
                             <div class="card mb-3">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Вечерний субботник во вторник</h5>
+                                    <h5 class="card-title mb-0" data-test="header">
+                                        Субботник во вторник
+                                    </h5>
                                 </div>
                                 <div class="card-body text-center">
                                     <img src="assets/images/svg-icon/event.svg" class="img-fluid" alt="profile"
@@ -180,10 +182,10 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Иван Петров</td>
-                                                <td>ivan.petrov@mail.ru</td>
-                                                <td>5</td>
+                                                <th data-test="enroll_counter">1</th>
+                                                <td data-test="enroll_user">Иван Петров</td>
+                                                <td data-test="enroll_email">ivan.petrov@mail.ru</td>
+                                                <td data-test="enroll_rate">5</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -199,14 +201,12 @@
                                 </div>
                                 <div class="card-body">
                                     <!-- Start Review item -->
-                                    <div class="d-flex mb-4">
-                                        <span class="mr-3 action-icon badge badge-success-inverse">5</span>
-                                        <div>
-                                            <h5>Денис</h5>
-                                            <p class="my-3">Все понравилось. Круто повеселились!</p>
-                                            <p>5 Jan 2019, 02:13 PM</p>
-                                        </div>
-                                    </div>
+                                    <h5 class="me-2" data-test="review_user">
+                                        Денис
+                                        <span class="badge bg-warning" data-test="review_rate">5</span>
+                                    </h5>
+                                    <p class="my-3" data-test="review_text">Все понравилось. Круто повеселились!</p>
+                                    <p class="mb-4" data-test="review_created">01.01.2001</p>
                                     <!-- End Review item -->
                                 </div>
                             </div>
@@ -229,12 +229,14 @@
                                                     удалить событие безвозвратно?
                                                 </p>
                                                 <div class="button-list">
-                                                    <button type="button" class="btn btn-danger">
-                                                        Да, удалить
-                                                    </button>
-                                                    <button type="button" class="btn btn-success">
-                                                        Нет, не удалять
-                                                    </button>
+                                                    <form action="" method="post">
+                                                        <button type="submit" class="btn btn-danger">
+                                                            Да, удалить
+                                                        </button>
+                                                        <a href="event_detail.html" class="btn btn-success">
+                                                            Нет, не удалять
+                                                        </a>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
