@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Real World Django - мой профайл</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Project style -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="vertical-layout">
+
+    <!-- Start LEFT_MENU -->
+    <div class="leftbar">
+        <div class="logobar">
+            <a href="index.html" class="logo logo-large">
+                <img src="assets/images/svg-icon/logo.svg" alt="logo" style="height: 40px">
+            </a>
+        </div>
+        <ul class="vertical-menu" id="vertical-menu">
+            <li class="vertical-menu-item">
+                <span>Главное</span>
+                <ul class="vertical-submenu">
+                    <li><a href="event_list.html">События</a></li>
+                </ul>
+            </li>
+            <li class="vertical-menu-item">
+                <span>Аккаунт</span>
+                <ul class="vertical-submenu">
+                    <li><a href="profile.html">Мой аккаунт</a></li>
+                    <li><a href="#">Изменить пароль</a></li>
+                    <li><a href="#">Сбросить пароль</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- menu for mobile -->
+    <div class="topbar-mobile">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="mobile-logobar" style="max-width: 40px">
+                    <a href="#" class="mobile-logo">
+                        <img src="assets/images/svg-icon/logo.svg" class="img-fluid" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-togglebar">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <div class="menubar">
+                                <a class="menu-hamburger" href="#" id="menu-hamburger">
+                                    <img src="assets/images/svg-icon/collapse.svg"
+                                         class="img-fluid menu-hamburger-collapse"
+                                         alt="collapse">
+                                    <img src="assets/images/svg-icon/close.svg"
+                                         class="img-fluid menu-hamburger-close"
+                                         alt="close">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-md-none" style="height: 90px"></div>
+    <!-- End LEFT_MENU -->
+
+    <!-- Start MAIN_CONTAINER -->
+    <div class="rightbar">
+
+        <!-- Start TOP_BAR -->
+        <div class="container-fluid bg-white py-3">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto text-center ms-4">
+                    <h4>Профайл</h4>
+                </div>
+                <div class="col-auto text-center me-4">
+                    <a href="#" class="btn btn-outline-primary">+ Добавить событие</a>
+                </div>
+            </div>
+        </div>
+        <!-- End TOP_BAR -->
+
+        <!-- Start CONTAINER_BAR -->
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col">
+                    <div class="card mb-3">
+                        <div class="card-body text-center">
+                            <img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"
+                                 style="width: 250px">
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Основная информация</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="." method="post" enctype="multipart/form-data">
+                                <div class="mb-3 text-start">
+                                    <label for="formFile" class="form-label">Загрузить аватар</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="id_email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="id_email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="id_username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="id_username">
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Сохранить
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Мои события</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Событие</th>
+                                        <th scope="col">Дата старта</th>
+                                        <th scope="col">Моя оценка</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            <a href="event_detail.html" data-test="event">
+                                                Шоу "Big Stand Up"
+                                            </a>
+                                        </td>
+                                        <td data-test="event_start">01.01.2001</td>
+                                        <td data-test="event_score">5</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>
+                                            <a href="event_detail.html" data-test="event">
+                                                Субботник "Под крышей дома моего"
+                                            </a>
+                                        </td>
+                                        <td data-test="event_start">01.02.2001</td>
+                                        <td data-test="event_score">--</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>
+                                            <a href="event_detail.html" data-test="event">
+                                                Волонтерский проект "Delivery-бабушка"
+                                            </a>
+                                        </td>
+                                        <td data-test="event_start">01.03.2001</td>
+                                        <td data-test="event_score">4</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Мои отзывы</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Событие</th>
+                                        <th scope="col">Отзыв</th>
+                                        <th scope="col">Оценка</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            <a href="event_detail.html" data-test="review_event">
+                                                Шоу "Big Stand Up"
+                                            </a>
+                                        </td>
+                                        <td data-test="review_text">
+                                            Такое было крутое событие...
+                                        </td>
+                                        <td data-test="review_score">5</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>
+                                            <a href="event_detail.html" data-test="review_event">
+                                                Волонтерский проект "Delivery-бабушка"
+                                            </a>
+                                        </td>
+                                        <td data-test="review_text">
+                                            Раньше все было как-то...
+                                        </td>
+                                        <td data-test="review_score">4</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End CONTAINER_BAR -->
+
+        <!-- Start FOOTER -->
+        <div style="height: 70px"></div>
+        <div class="footerbar">
+            <footer class="footer">
+                <p class="mb-0">© Pumpskill. Real World Django</p>
+            </footer>
+        </div>
+        <!-- End FOOTER -->
+
+    </div>
+    <!-- End MAIN_CONTAINER -->
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
