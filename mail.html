@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Real World Django - Отправка писем</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Project style -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="vertical-layout">
+
+    <!-- Start LEFT_MENU -->
+    <div class="leftbar">
+        <div class="logobar">
+            <a href="index.html" class="logo logo-large">
+                <img src="assets/images/svg-icon/logo.svg" alt="logo" style="height: 40px">
+            </a>
+        </div>
+        <ul class="vertical-menu" id="vertical-menu">
+            <li class="vertical-menu-item">
+                <span>Главное</span>
+                <ul class="vertical-submenu">
+                    <li><a href="event_list.html">События</a></li>
+                    <li><a href="mail.html">Подписчики</a></li>
+                </ul>
+            </li>
+            <li class="vertical-menu-item">
+                <span>Аккаунт</span>
+                <ul class="vertical-submenu">
+                    <li><a href="profile.html">Мой аккаунт</a></li>
+                    <li><a href="#">Изменить пароль</a></li>
+                    <li><a href="#">Сбросить пароль</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- menu for mobile -->
+    <div class="topbar-mobile">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="mobile-logobar" style="max-width: 40px">
+                    <a href="#" class="mobile-logo">
+                        <img src="assets/images/svg-icon/logo.svg" class="img-fluid" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-togglebar">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <div class="menubar">
+                                <a class="menu-hamburger" href="#" id="menu-hamburger">
+                                    <img src="assets/images/svg-icon/collapse.svg"
+                                         class="img-fluid menu-hamburger-collapse"
+                                         alt="collapse">
+                                    <img src="assets/images/svg-icon/close.svg"
+                                         class="img-fluid menu-hamburger-close"
+                                         alt="close">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-md-none" style="height: 90px"></div>
+    <!-- End LEFT_MENU -->
+
+    <!-- Start MAIN_CONTAINER -->
+    <div class="rightbar">
+
+        <!-- Start TOP_BAR -->
+        <div class="container-fluid bg-white py-3">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto text-center ms-4">
+                    <h4>События</h4>
+                </div>
+                <div class="col-auto text-center me-4">
+                    <a href="#" class="btn btn-outline-primary">+ Добавить событие</a>
+                </div>
+            </div>
+        </div>
+        <!-- End TOP_BAR -->
+
+        <!-- Start CONTAINER_BAR -->
+        <div class="container mt-3">
+            <h2>Подписчики</h2>
+            <hr>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form action="" method="post" class="mb-5">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" required>
+                        <button type="submit" class="btn btn-primary mt-2">Добавить подписчика</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <form class="mb-5" id="formLetter">
+                        <label>Тема письма:</label>
+                        <input type="text" class="form-control" required>
+                        <label>Текст письма:</label>
+                        <textarea rows="3" class="form-control"></textarea>
+                        <button type="button" class="btn btn-primary mt-2" id="btnCreateLetters">Создать письма</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Количество писем</th>
+                            <th scope="col">Отправленных</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-tr-email="user_1@mail.ru">
+                            <td data-td-name="counter">1</td>
+                            <td data-td-name="email">
+                                <span>user_1@mail.ru</span>
+                                <input type="hidden" name="email" value="user_1@mail.ru" form="formLetter">
+                            </td>
+                            <td data-td-name="letterCount">0</td>
+                            <td data-td-name="sentLetterCount">1</td>
+                        </tr>
+                        <tr data-tr-email="user_2@mail.ru">
+                            <td data-td-name="counter">1</td>
+                            <td data-td-name="email">
+                                <span>user_2@mail.ru</span>
+                                <input type="hidden" name="email" value="user_2@mail.ru" form="formLetter">
+                            </td>
+                            <td data-td-name="letterCount">1</td>
+                            <td data-td-name="sentLetterCount">1</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-success my-2" id="btnSendLetters" form="formLetter">
+                        Отправить письма
+                    </button>
+                    <div class="alert alert-primary my-2 d-none" role="alert" id="alertSendingProcess">
+                        Выполняется отправка писем
+                    </div>
+                    <div class="alert alert-success my-2 d-none" role="alert" id="alertSendingDone">
+                        Отправка писем завершена
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End CONTAINER_BAR -->
+
+    </div>
+    <!-- End MAIN_CONTAINER -->
+
+    <script>
+        function readySubscribers() {
+
+            const urlCreateLetters = ""
+            const urlSendLetters = ""
+            const urlGetSubscribers = ""
+
+            let btnCreateLetters = document.getElementById('btnCreateLetters')
+            if (btnCreateLetters) {
+                btnCreateLetters.onclick = () => {
+                    createLetters(urlCreateLetters)
+                }
+            }
+
+            let btnSendLetters = document.getElementById('btnSendLetters')
+            if (btnSendLetters) {
+                btnSendLetters.onclick = () => {
+                    sendLetters(urlSendLetters, urlGetSubscribers)
+                }
+            }
+
+        }
+        document.addEventListener("DOMContentLoaded", readySubscribers)
+    </script>
+
+    <!-- Start FOOTER -->
+    <div style="height: 70px"></div>
+    <div class="footerbar">
+        <footer class="footer">
+            <p class="mb-0">© Pumpskill. Real World Django</p>
+        </footer>
+    </div>
+    <!-- End FOOTER -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
